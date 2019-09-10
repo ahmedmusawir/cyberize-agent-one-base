@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class AppOne extends React.Component { 
+class MooseComp extends React.Component { 
     handleClick(e) { 
         console.log('Running React App 1'); 
-        alert('Running React App 1');
+        alert('Moose Component is working');
     }
 
     render() {
         return (
             <div className="app-content container">
-                <h1 className="jumbotron">React App 1 Works!</h1>
+                <h1 className="jumbotron">This is a Moose Component</h1>
                 <article>
-                    <h3>Bootstrap 4 Added - Updated 21 Oct 2018</h3>
                     <h3>Gulp React - Updated 10 Sep 2019</h3>
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate eos fugiat
@@ -25,4 +24,6 @@ class AppOne extends React.Component {
             </div>
         )
     }
-} ReactDOM.render(<AppOne/>, document.getElementById('app1'));
+}
+
+export default MooseComp;

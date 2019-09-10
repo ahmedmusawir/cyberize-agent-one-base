@@ -9,9 +9,9 @@
 
 
 function moose_react_setup() {
-  if ( is_page_template( 'template-react1.php' ) ) {
+  if ( is_page_template( 'template-react-app-1.php' ) ) {
   	//CYBERIZE FRAMEWORK 1.0 JAVASCRIPTS UNIFIED AND MINIFIED
-	wp_enqueue_script( 'cyberize-react-script-1', get_template_directory_uri() . '/assets/dist/js/react-script-1.min.js', array(), '20151215', true );
+	wp_enqueue_script( 'cyberize-react-script-1', get_template_directory_uri() . '/assets/dist/js/script-react.min.js', array(), '20151215', true );
 
   } else if ( is_page_template( 'template-react-todo-app.php' ) )  {
     //CYBERIZE FRAMEWORK 1.0 JAVASCRIPTS UNIFIED AND MINIFIED

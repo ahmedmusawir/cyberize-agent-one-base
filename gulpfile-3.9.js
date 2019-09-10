@@ -6,7 +6,7 @@
 var gulp = require( 'gulp' );
 var rename = require( 'gulp-rename' );
 var scss = require( 'gulp-sass' );
-var autoprefixer = require( 'gulp-autoprefixer' );
+var cssPrefixer = require( 'gulp-autoprefixer' );
 var sourcemaps = require( 'gulp-sourcemaps' );
 var browserify = require( 'browserify' );
 var babelify = require( 'babelify' );
@@ -19,7 +19,7 @@ var uglify = require( 'gulp-uglify' );
  * Gulp SCSS Variables
  *
  */
-var adminStyleSRC = './assets/src/scss/main.scss';
+var adminStyleSRC = '/assets/src/scss/main.scss';
 var styleWatch = '/assets/src/scss/**/*.scss';
 var styleDIST = './assets/dist/css/';
 
@@ -28,7 +28,7 @@ var styleDIST = './assets/dist/css/';
  * Gulp SCSS to CSS
  *
  */
-function styles(done){
+gulp.task( 'styles', function(){
 
 	gulp.src( adminStyleSRC )
 		.pipe( sourcemaps.init() )
@@ -37,20 +37,23 @@ function styles(done){
 			outputStyle: 'compressed'
 		}) )
 		.on( 'error', console.error.bind( console ) )
-		.pipe( autoprefixer({ overrideBrowserslist: [ 'last 2 versions', '> 5%', 'Firefox ESR' ] }) )
+		.pipe( cssPrefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}) )
 		.pipe( rename( { suffix: '.min' } ) )
 		.pipe( sourcemaps.write( './' ) )
 		.pipe( gulp.dest( styleDIST ) );
 
-	done();
-
-};
+});
 
 /**
  *
  * Gulp JS Variables
  *
  */
+// var adminStyleSRC = './assets/src/scss/main.scss';
+// var styleWatch = './assets/src/scss/**/*.scss';
 var jsSRC = 'script.js';
 var jsReactSRC = 'script-react.js';
 var jsFolder = 'assets/src/js/';
@@ -65,14 +68,20 @@ var jsFILES = [ jsSRC, jsReactSRC ];
  *
  */
 
-function js(done){
+// gulp.task('js', function() {
+
+// 	gulp.src( jsSRC )
+// 		.pipe( gulp.dest( jsDIST ));
+// });
+
+gulp.task( 'js', function(){
 
 	jsFILES.map( function( singleJSFile ){
 
 		return browserify({
 			entries: [ jsFolder + singleJSFile ]
 		})
-		.transform( babelify, { presets: ['@babel/preset-env'] } )
+		.transform( babelify, { presets: ['env'] } )
 		.bundle()
 		.pipe( source( singleJSFile ) )
 		.pipe( rename( { extname: '.min.js' } ) )
@@ -83,20 +92,14 @@ function js(done){
 		.pipe( gulp.dest( jsDIST ) )
 
 	});
-
-	done();
-};
+});
 
 /**
  *
  * Gulp Default Task
  *
  */
-gulp.task("styles", styles);
-
-gulp.task("js", js);
-
-gulp.task("default", gulp.parallel(styles, js))
+gulp.task('default', ['styles', 'js']);
 
 
 /**
@@ -104,41 +107,12 @@ gulp.task("default", gulp.parallel(styles, js))
  * Gulp Watch Task
  *
  */
-function watch_files(done) {
+gulp.task('watch', ['default'], function() {
 
-	gulp.watch( styleWatch, styles );
-	gulp.watch( jsWatch, js );
+	gulp.watch( styleWatch, ['styles'] );
+	gulp.watch( jsWatch, ['js'] );
 
-	done();
-
-};
-
-gulp.task("watch", gulp.series(styles, js, watch_files));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});
 
 
 
