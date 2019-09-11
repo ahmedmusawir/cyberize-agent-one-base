@@ -13,9 +13,9 @@ function moose_react_setup() {
   	//CYBERIZE FRAMEWORK 1.0 JAVASCRIPTS UNIFIED AND MINIFIED
 	wp_enqueue_script( 'cyberize-react-script-1', get_template_directory_uri() . '/assets/dist/js/script-react.min.js', array(), '20151215', true );
 
-  } else if ( is_page_template( 'template-react-todo-app.php' ) )  {
+  } else if ( is_page_template( 'template-react-app-2.php' ) )  {
     //CYBERIZE FRAMEWORK 1.0 JAVASCRIPTS UNIFIED AND MINIFIED
-  wp_enqueue_script( 'cyberize-react-todo-app',  get_template_directory_uri() . '/assets/react-apps/todo-wp-react/public/bundle.js', array(), '111', true );
+  wp_enqueue_script( 'cyberize-react-script-2',  get_template_directory_uri() . '/assets/dist/js/script-react-2.min.js', array(), '111', true );
 
   } else if ( is_page_template( 'template-react-youtube-app.php' ) )  {
     //CYBERIZE FRAMEWORK 1.0 JAVASCRIPTS UNIFIED AND MINIFIED
