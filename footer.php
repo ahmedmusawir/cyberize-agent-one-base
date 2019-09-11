@@ -13,7 +13,6 @@
 
 	</div><!-- #content -->
 
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">	
 
 	<footer id="footer-melissa" class="site-footer">
 
@@ -59,9 +58,9 @@
 				=            THIS IS FOR DEBUGGING. PLZ DISABLE WHEN READY TO PUBLISH            =
 				===============================================================================-->
 				
-				<div style="color: red"><strong>Current template:</strong> 
-					<?php  echo get_current_template( true ); ?>
-				</div>
+				<!-- <div style="color: red"><strong>Current template:</strong>  -->
+					<?php // echo get_current_template( true ); ?>
+				<!-- </div> -->
 				
 				<!-- ====  End of THIS IS FOR DEBUGGING. PLZ DISABLE WHEN READY TO PUBLISH  ==== -->
 						

@@ -20,7 +20,7 @@ var uglify = require( 'gulp-uglify' );
  *
  */
 var adminStyleSRC = './assets/src/scss/main.scss';
-var styleWatch = '/assets/src/scss/**/*.scss';
+var styleWatch = './assets/src/scss/**/*.scss';
 var styleDIST = './assets/dist/css/';
 
 /**

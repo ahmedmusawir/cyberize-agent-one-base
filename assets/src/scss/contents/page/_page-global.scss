@@ -4,19 +4,18 @@
  *
  */
 
-#general-page-header {
+.page-template {
 
-   	img {
-		-moz-box-shadow: 0 6px 40px  lighten($black, 20%);
-		-webkit-box-shadow: 0 6px 40px  lighten($black, 20%);
-		box-shadow: 0 6px 40px  lighten($black, 20%);
-   	}
+	// border: 1rem dotted red;
+	.entry-content {
+		// border: 1px dotted red;
+		margin-top: -.75rem;
+	}
 }
 
-.gallery {
-	.gallery-item {
-		padding: 1rem;
-	}
+#general-page-header {
+
+ 
 }
 
 .post-navigation {
@@ -35,24 +34,3 @@
 	}
 }
 
-.content-area {
-	// padding-top: 6rem;
-	// padding-bottom: 4rem;
-
-	.post-thumbnail {
-		img {
-			width: 100%;
-			// padding-bottom: 2rem;
-			// padding-top: 2rem;
-		}
-	}
-
-	@media (max-width: 800px) {
-		img {
-			display: block;
-			clear: both;
-			width: 100%;
-			padding-bottom: 2rem;
-		}
-	}
-}
