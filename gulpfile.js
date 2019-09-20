@@ -52,13 +52,17 @@ function styles(done){
  *
  */
 var jsSRC = 'script.js';
-var jsReactSRC = 'script-react.js';
-var jsReactSRC2 = 'script-react-2.js';
+
 var jsFolder = 'assets/src/js/';
 var jsWatch = 'assets/src/js/**/*.js';
 var jsDIST = './assets/dist/js/';
 
-var jsFILES = [ jsSRC, jsReactSRC, jsReactSRC2 ];
+var jsFILES = [ jsSRC ];
+
+// The following can be enabled to run React Scripts or any other ES6 Scripts
+// var jsReactSRC = 'script-react.js';
+// var jsReactSRC2 = 'script-react-2.js';
+// var jsFILES = [ jsSRC, jsReactSRC, jsReactSRC2 ];
 
 /**
  *
